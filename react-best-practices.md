@@ -24,13 +24,13 @@
 - zones are a useful way to improve stack traces, profile and debug asynchronous javascript code. https://www.youtube.com/watch?v=3IqtmUscE_U
 
 Things that are common accidents to do: 
-- rendering from props instead of state,
-- passing prop to child when yo meant to pass state. 
-- Invoking a function when you meant to pass a function reference
-- Typo in the event handler name
-- Forget to inherit from React.Component
-Checking object references instead of ids
-Accidentely using the props of the instance instead of parameter props
+- rendering from props instead of state. Painful effect: you know you are updating your component's state but it keeps rendering the old value!
+- passing prop to child when you meant to pass state. Painful effect: changes I make in my component's state aren't reflected in the props of my components children!
+- Invoking a function when you meant to pass a function reference. Painful effect: behavior that is supposed to be deferred or handled keeps happening immediately?!? Event handlers aren't waiting for user interaction
+- Typo in the event handler name. Painful effect: event handler doesn't seem to be working right, not firing
+- Forget to inherit from React.Component. Painful effect: function that I think is a component is really a function, no component lifecycle behevior is demonstrated. 
+- Checking object references instead of ids: Painful effect: virtual dom updates unpredictable https://www.automationfuel.com/react-keys-index/
+- Accidentely using the props of the instance instead of parameter props??
 
 Things that can do but you don’t always want to: 
 You can put an anonymous wrapper function inline into the event handler property of a jsx element, but be careful, if this is in a loop it will be called every time. 
